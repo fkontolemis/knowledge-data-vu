@@ -1,26 +1,43 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
-@prefix dbr: <http://dbpedia.org/resource/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ex: <http://example.com/kad/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+ex:Germany a ex:EuropeanCountry .
 
-ex:Netherlands rdf:type ex:Country .
-ex:Belgium rdf:type ex:Country .
-ex:Netherlands ex:hasName "The Netherlands" .
-ex:Netherlands ex:neighbours ex:Belgium .
-ex:Netherlands ex:hasCapital ex:Amsterdam .
-ex:Amsterdam rdf:type ex:Capital .
+ex:Italy a ex:Country ;
+    ex:hasCapital ex:Rome ;
+    ex:hasName "Italy" .
 
-ex:Germany rdf:type ex:EuropeanCountry .
+ex:Netherlands a ex:Country ;
+    ex:hasCapital ex:Amsterdam ;
+    ex:hasName "Netherlands" ;
+    ex:neighbours ex:Belgium .
 
-ex:Capital rdfs:subClassOf ex:City .
+ex:Spain a ex:Country ;
+    ex:hasCapital ex:Madrid ;
+    ex:hasName "Spain" ;
+    ex:neighbours ex:Portugal .
+
+ex:hasCapital rdfs:range ex:Capital ;
+    rdfs:subPropertyOf ex:containsCity .
+
+ex:Amsterdam a ex:Capital .
+
+ex:Belgium a ex:Country .
 
 ex:EuropeanCountry rdfs:subClassOf ex:Country .
 
-ex:containsCity rdfs:domain ex:Country ;
-                rdfs:range ex:City .
+ex:Lisbon a ex:Capital .
 
-ex:hasCapital rdfs:subPropertyOf ex:containsCity ;
-              rdfs:range ex:Capital .
+ex:Madrid a ex:Capital .
+
+ex:Portugal a ex:Country ;
+    ex:hasCapital ex:Lisbon ;
+    ex:hasName "Portugal" .
+
+ex:Rome a ex:Capital .
+
+ex:containsCity rdfs:domain ex:Country ;
+    rdfs:range ex:City .
+
+ex:Capital rdfs:subClassOf ex:City .
 

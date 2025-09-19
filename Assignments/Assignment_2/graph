@@ -1,0 +1,29 @@
+strict digraph {
+	graph [dpi=50]
+  Portugal -> Country [label = "type"] ; 
+  Spain -> Portugal [label = "neighbours"] ; 
+  Netherlands -> Belgium [label = "neighbours"] ; 
+  Netherlands -> "Netherlands" [label = "hasName"] ; 
+  Madrid -> Capital [label = "type"] ; 
+  Portugal -> Lisbon [label = "hasCapital"] ; 
+  containsCity -> Country [label = "domain"] ; 
+  Netherlands -> Amsterdam [label = "hasCapital"] ; 
+  Spain -> Country [label = "type"] ; 
+  Lisbon -> Capital [label = "type"] ; 
+  Spain -> Madrid [label = "hasCapital"] ; 
+  Amsterdam -> Capital [label = "type"] ; 
+  Italy -> Country [label = "type"] ; 
+  Netherlands -> Country [label = "type"] ; 
+  Germany -> EuropeanCountry [label = "type"] ; 
+  containsCity -> City [label = "range"] ; 
+  Italy -> "Italy" [label = "hasName"] ; 
+  Rome -> Capital [label = "type"] ; 
+  Spain -> "Spain" [label = "hasName"] ; 
+  EuropeanCountry -> Country [label = "subClassOf"] ; 
+  Italy -> Rome [label = "hasCapital"] ; 
+  hasCapital -> Capital [label = "range"] ; 
+  Belgium -> Country [label = "type"] ; 
+  Portugal -> "Portugal" [label = "hasName"] ; 
+  Capital -> City [label = "subClassOf"] ; 
+  hasCapital -> containsCity [label = "subPropertyOf"] ; 
+}

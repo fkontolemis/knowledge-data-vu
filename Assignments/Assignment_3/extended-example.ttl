@@ -1,0 +1,51 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix ex: <http://example.com/kad/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Netherlands a ex:Country ;
+    ex:contains ex:Ijsselmeer ;
+    ex:containsCity ex:Rotterdam ;
+    ex:hasCapital ex:Amsterdam ;
+    ex:hasName "The Netherlands" ;
+    ex:neighbours ex:Belgium .
+
+ex:hasCapital rdfs:range ex:Capital ;
+    rdfs:subPropertyOf ex:containsCity .
+
+ex:neighbours rdfs:subPropertyOf ex:closeBy .
+
+ex:Amsterdam a ex:Capital ;
+    dbo:latitude "52.36666488647461"^^xsd:float ;
+    dbo:longitude "4.900000095367432"^^xsd:float ;
+    dbo:populationTotal "907976"^^xsd:nonNegativeInteger ;
+    ex:closeBy ex:Germany .
+
+ex:Belgium a ex:Country .
+
+ex:Berlin dbo:latitude "52.52000045776367"^^xsd:float ;
+    dbo:longitude "13.40499973297119"^^xsd:float ;
+    dbo:populationTotal "3677472"^^xsd:nonNegativeInteger .
+
+ex:EuropeanCountry rdfs:subClassOf ex:Country .
+
+ex:Germany a ex:EuropeanCountry ;
+    ex:hasCapital ex:Berlin .
+
+ex:Rotterdam dbo:latitude "51.91666793823242"^^xsd:float ;
+    dbo:longitude "4.5"^^xsd:float ;
+    dbo:populationTotal "651157"^^xsd:nonNegativeInteger .
+
+ex:closeBy rdfs:domain ex:Location ;
+    rdfs:range ex:Location .
+
+ex:containsCity rdfs:domain ex:Country ;
+    rdfs:range ex:City ;
+    rdfs:subPropertyOf ex:contains .
+
+ex:Capital rdfs:subClassOf ex:City .
+
+ex:City rdfs:subClassOf ex:Location .
+
+ex:Country rdfs:subClassOf ex:Location .
+

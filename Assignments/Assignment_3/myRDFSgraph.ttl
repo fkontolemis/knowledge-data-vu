@@ -1,0 +1,86 @@
+@prefix ex: <http://example.org/football/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:FootballClub a rdfs:Class .
+
+ex:FootballCompetition a rdfs:Class .
+
+ex:Manager a rdfs:Class .
+
+ex:Player a rdfs:Class .
+
+ex:PremierLeague a rdfs:Class ;
+    rdfs:subClassOf ex:FootballCompetition .
+
+ex:Stadium a rdfs:Class .
+
+ex:YouthAcademy a rdfs:Class ;
+    rdfs:label "Youth Academy" ;
+    rdfs:subClassOf ex:FootballClub .
+
+ex:Arsenal a ex:FootballClub ;
+    rdfs:label "Arsenal Football Club" ;
+    ex:hasCaptain ex:Saka ;
+    ex:hasManager ex:Arteta ;
+    ex:participatesIn ex:PremierLeague ;
+    ex:playsAt ex:EmiratesStadium .
+
+ex:ArsenalYouthAcademy a ex:YouthAcademy ;
+    rdfs:label "Arsenal Youth Academy" .
+
+ex:LiverpoolFC a ex:FootballClub ;
+    rdfs:label "Liverpool Football Club" ;
+    ex:hasCaptain ex:MohamedSalah ;
+    ex:hasManager ex:Slott ;
+    ex:participatesIn ex:PremierLeague ;
+    ex:playsAt ex:Anfield .
+
+ex:LiverpoolYouthAcademy a ex:YouthAcademy ;
+    rdfs:label "Liverpool Youth Academy" .
+
+ex:coaches a rdf:Property ;
+    rdfs:domain ex:Manager ;
+    rdfs:range ex:Player .
+
+ex:hasCaptain a rdf:Property ;
+    rdfs:domain ex:FootballClub ;
+    rdfs:range ex:Player ;
+    rdfs:subPropertyOf ex:hasPlayer .
+
+ex:hasManager a rdf:Property ;
+    rdfs:domain ex:FootballClub ;
+    rdfs:range ex:Manager .
+
+ex:participatesIn a rdf:Property ;
+    rdfs:domain ex:FootballClub ;
+    rdfs:range ex:PremierLeague .
+
+ex:playsAt a rdf:Property ;
+    rdfs:domain ex:FootballClub ;
+    rdfs:range ex:Stadium .
+
+ex:Anfield a ex:Stadium ;
+    rdfs:label "Anfield" .
+
+ex:Arteta a ex:Manager ;
+    rdfs:label "Mikel Arteta" ;
+    ex:coaches ex:Saka .
+
+ex:EmiratesStadium a ex:Stadium ;
+    rdfs:label "Emirates Stadium" .
+
+ex:Slott a ex:Manager ;
+    rdfs:label "Arne Slott" ;
+    ex:coaches ex:MohamedSalah .
+
+ex:hasPlayer a rdf:Property ;
+    rdfs:domain ex:FootballClub ;
+    rdfs:range ex:Player .
+
+ex:MohamedSalah a ex:Player ;
+    rdfs:label "Mohamed Salah" .
+
+ex:Saka a ex:Player ;
+    rdfs:label "Bukayo Saka" .
+
