@@ -1,7 +1,0 @@
-@prefix ns1: <http://dbpedia.org/ontology/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<http://example.com/kad/London> ns1:latitude "51.50722122192383"^^xsd:float ;
-    ns1:longitude "-0.1274999976158142"^^xsd:float ;
-    ns1:populationTotal 8799800 .
-

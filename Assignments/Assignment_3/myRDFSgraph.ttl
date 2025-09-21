@@ -2,18 +2,17 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ex:FootballClub a rdfs:Class .
+ex:FootballClub a rdfs:Class ;
+    rdfs:label "Football Club" .
 
-ex:FootballCompetition a rdfs:Class .
+ex:Manager a rdfs:Class ;
+    rdfs:label "Manager" .
 
-ex:Manager a rdfs:Class .
+ex:Player a rdfs:Class ;
+    rdfs:label "Player" .
 
-ex:Player a rdfs:Class .
-
-ex:PremierLeague a rdfs:Class ;
-    rdfs:subClassOf ex:FootballCompetition .
-
-ex:Stadium a rdfs:Class .
+ex:Stadium a rdfs:Class ;
+    rdfs:label "Stadium" .
 
 ex:YouthAcademy a rdfs:Class ;
     rdfs:label "Youth Academy" ;
@@ -23,7 +22,6 @@ ex:Arsenal a ex:FootballClub ;
     rdfs:label "Arsenal Football Club" ;
     ex:hasCaptain ex:Saka ;
     ex:hasManager ex:Arteta ;
-    ex:participatesIn ex:PremierLeague ;
     ex:playsAt ex:EmiratesStadium .
 
 ex:ArsenalYouthAcademy a ex:YouthAcademy ;
@@ -33,30 +31,29 @@ ex:LiverpoolFC a ex:FootballClub ;
     rdfs:label "Liverpool Football Club" ;
     ex:hasCaptain ex:MohamedSalah ;
     ex:hasManager ex:Slott ;
-    ex:participatesIn ex:PremierLeague ;
     ex:playsAt ex:Anfield .
 
 ex:LiverpoolYouthAcademy a ex:YouthAcademy ;
     rdfs:label "Liverpool Youth Academy" .
 
 ex:coaches a rdf:Property ;
+    rdfs:label "coaches" ;
     rdfs:domain ex:Manager ;
     rdfs:range ex:Player .
 
 ex:hasCaptain a rdf:Property ;
+    rdfs:label "has captain" ;
     rdfs:domain ex:FootballClub ;
     rdfs:range ex:Player ;
     rdfs:subPropertyOf ex:hasPlayer .
 
 ex:hasManager a rdf:Property ;
+    rdfs:label "has manager" ;
     rdfs:domain ex:FootballClub ;
     rdfs:range ex:Manager .
 
-ex:participatesIn a rdf:Property ;
-    rdfs:domain ex:FootballClub ;
-    rdfs:range ex:PremierLeague .
-
 ex:playsAt a rdf:Property ;
+    rdfs:label "plays at" ;
     rdfs:domain ex:FootballClub ;
     rdfs:range ex:Stadium .
 
@@ -75,6 +72,7 @@ ex:Slott a ex:Manager ;
     ex:coaches ex:MohamedSalah .
 
 ex:hasPlayer a rdf:Property ;
+    rdfs:label "has player" ;
     rdfs:domain ex:FootballClub ;
     rdfs:range ex:Player .
 
